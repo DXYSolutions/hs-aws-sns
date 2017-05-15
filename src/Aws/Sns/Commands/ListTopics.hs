@@ -71,7 +71,7 @@ data ListTopicsResponse = ListTopicsResponse
 
 instance ResponseConsumer r ListTopicsResponse where
     type ResponseMetadata ListTopicsResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = ListTopicsResponse (nextToken el) <$> arns el
         arns el = do

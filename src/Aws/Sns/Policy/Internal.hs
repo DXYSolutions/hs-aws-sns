@@ -85,13 +85,13 @@ import qualified Data.Text as T
 import Data.Time.Clock
 import Data.Time.Format
 import Data.Typeable
-import Data.UUID hiding (fromString)
+import Data.UUID hiding (fromString, fromText, toText)
 import qualified Data.Vector as V
 import Data.IP
 
 import GHC.Generics
 
-import System.Locale
+import System.Locale hiding (defaultTimeLocale)
 
 import Text.Parser.Combinators
 import Text.Parser.Char

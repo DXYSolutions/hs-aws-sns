@@ -70,7 +70,7 @@ data SubscribeResponse = SubscribeResponse
 
 instance ResponseConsumer r SubscribeResponse where
     type ResponseMetadata SubscribeResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = SubscribeResponse <$> arn el
         arn el = do

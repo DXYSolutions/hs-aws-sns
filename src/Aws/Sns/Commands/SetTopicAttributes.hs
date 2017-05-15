@@ -85,7 +85,7 @@ data SetTopicAttributesResponse = SetTopicAttributesResponse
 
 instance ResponseConsumer r SetTopicAttributesResponse where
     type ResponseMetadata SetTopicAttributesResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer (const $ pure SetTopicAttributesResponse)
+    responseConsumer _ _ = snsXmlResponseConsumer (const $ pure SetTopicAttributesResponse)
 
 instance SignQuery SetTopicAttributes where
     type ServiceConfiguration SetTopicAttributes = SnsConfiguration

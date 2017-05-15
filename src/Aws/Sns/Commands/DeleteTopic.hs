@@ -48,7 +48,7 @@ data DeleteTopicResponse = DeleteTopicResponse
 
 instance ResponseConsumer r DeleteTopicResponse where
     type ResponseMetadata DeleteTopicResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer $ \_ ->
+    responseConsumer _ _ = snsXmlResponseConsumer $ \_ ->
         return DeleteTopicResponse
 
 instance SignQuery DeleteTopic where

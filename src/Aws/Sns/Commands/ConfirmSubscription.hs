@@ -81,7 +81,7 @@ data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
 
 instance ResponseConsumer r ConfirmSubscriptionResponse where
     type ResponseMetadata ConfirmSubscriptionResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = ConfirmSubscriptionResponse <$> arn el
         arn el = do

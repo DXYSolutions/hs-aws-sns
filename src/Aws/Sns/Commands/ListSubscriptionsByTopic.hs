@@ -111,7 +111,7 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 
 instance ResponseConsumer r ListSubscriptionsByTopicResponse where
     type ResponseMetadata ListSubscriptionsByTopicResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = ListSubscriptionsByTopicResponse (nextToken el) <$> subs el
         subs el = do

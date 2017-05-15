@@ -51,7 +51,7 @@ data UnsubscribeResponse = UnsubscribeResponse
 
 instance ResponseConsumer r UnsubscribeResponse where
     type ResponseMetadata UnsubscribeResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer $ \_ ->
+    responseConsumer _ _ = snsXmlResponseConsumer $ \_ ->
         return UnsubscribeResponse
 
 instance SignQuery Unsubscribe where

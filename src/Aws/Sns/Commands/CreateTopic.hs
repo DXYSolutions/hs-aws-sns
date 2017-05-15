@@ -60,7 +60,7 @@ data CreateTopicResponse = CreateTopicResponse
 
 instance ResponseConsumer r CreateTopicResponse where
     type ResponseMetadata CreateTopicResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = CreateTopicResponse <$> arn el
         arn el = do

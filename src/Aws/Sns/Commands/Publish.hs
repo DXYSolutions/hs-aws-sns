@@ -178,7 +178,7 @@ data PublishResponse = PublishResponse
 
 instance ResponseConsumer r PublishResponse where
     type ResponseMetadata PublishResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p el = PublishResponse . MessageId <$> arn el
         arn el = force "Missing Message Id" $ el

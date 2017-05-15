@@ -61,7 +61,7 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 
 instance ResponseConsumer r GetSubscriptionAttributesResponse where
     type ResponseMetadata GetSubscriptionAttributesResponse = SnsMetadata
-    responseConsumer _ = snsXmlResponseConsumer p
+    responseConsumer _ _ = snsXmlResponseConsumer p
       where
         p :: CU.Cursor -> Response (ResponseMetadata GetSubscriptionAttributesResponse) GetSubscriptionAttributesResponse
         p el = either throwM return $ do
